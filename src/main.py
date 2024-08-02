@@ -15,3 +15,5 @@ val_folder = 'data/val/val'
 
 training_imgs_clean = read_files.read_2(training_folder_clean)
 training_imgs_stego = read_files.read_2(training_folder_stego)
+
+print(training_imgs_clean[1])
