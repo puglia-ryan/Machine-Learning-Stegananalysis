@@ -1,6 +1,7 @@
 from PIL import Image
 import os
 import numpy as np
+from os import listdir
 
 def read_and_resize_images(image_folder, target_size=(512, 512)):
     images = []
@@ -17,3 +18,15 @@ def read_and_resize_images(image_folder, target_size=(512, 512)):
         images = np.array(images) / 255.0 #Normalisation
         labels = np.append(labels)
     return images, labels
+
+
+
+ 
+# get the path/directory
+def read_2(folder_dir, target_size=(512, 512)):
+    images = []
+    for i in os.listdir(folder_dir):
+        # check if the image ends with png
+        if (i.endswith(".png")):
+            images.append(i)
+    return images
