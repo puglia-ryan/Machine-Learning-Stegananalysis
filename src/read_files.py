@@ -28,5 +28,5 @@ def read_2(folder_dir, target_size=(512, 512)):
     for i in os.listdir(folder_dir):
         # check if the image ends with png
         if (i.endswith(".png")):
-            images.append(i)
+            images.append(folder_dir + '/' + i)
     return images
