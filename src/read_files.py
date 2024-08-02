@@ -3,7 +3,7 @@ import os
 import numpy as np
 from os import listdir
 
-"""
+
 def read_and_resize_images(image_folder, target_size=(512, 512)):
     images = []
     labels = []
@@ -19,7 +19,7 @@ def read_and_resize_images(image_folder, target_size=(512, 512)):
         images = np.array(images) / 255.0 #Normalisation
         labels = np.append(labels)
     return images, labels
-"""
+
 
 
  
