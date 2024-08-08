@@ -14,12 +14,13 @@ def read_and_resize_images(image_folder, target_size=(512, 512)):
                 with Image.open(img_path) as img:
                     if img.mode == 'RGB':
                         img = img.convert('RGBA')
-                    print(img.mode)
                     img_resized = img.resize(target_size, Image.ANTIALIAS)
                     images.append(np.asarray(img))
                     # This line may differ depending of the dataset's structure/labelling
                     labels.append(1 if 'stego' in subdir else '0')
         #images = np.array(images) / 255.0 #Normalisation
+        if len(images) == 120:
+            break
     return images, labels
 
 
