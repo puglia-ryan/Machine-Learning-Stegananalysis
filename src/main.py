@@ -17,13 +17,28 @@ data = tf.keras.utils.image_dataset_from_directory(
     subset="training",
     seed=123,
     image_size=(512, 512))
-print(data)
-print(data.class_names)
+
+val_ds = tf.keras.utils.image_dataset_from_directory(
+  'data',
+  validation_split=0.2,
+  subset="validation",
+  seed=123,
+  image_size=(512, 512))
+
+data = data.map(lambda x, y: (x/255, y)) #Normalises the data from range 0-255 to 0-1
 data_iterator = data.as_numpy_iterator()
 batch = data_iterator.next()
 
+fig, ax = plt.subplots(ncols=4, figsize=(20,20))
+for idx, img in enumerate(batch[0][:4]):
+    ax[idx].imshow(img)
+    ax[idx].title.set_text(batch[1][idx])
 
+plt.show()
 
+AUTOTUNE = tf.data.AUTOTUNE
+data = data.cache().prefetch(buffer_size=AUTOTUNE)
+val_ds = val_ds.cache().prefetch(buffer_size=AUTOTUNE)
 
 """
 training_imgs, training_labels = read_files.read_and_resize_images(training_folder)
