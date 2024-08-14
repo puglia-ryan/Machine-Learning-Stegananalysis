@@ -28,14 +28,14 @@ val = data.take(int(len(data)*0.1)+1)
 
 AUTOTUNE = tf.data.AUTOTUNE
 data = data.cache().prefetch(buffer_size=AUTOTUNE)
-
-checkpoint_path = "my_model.h5"
+#The number in the brackets denotes which model structure was used from the model.py file
+checkpoint_path = "my_model2(2).h5"
 
 
 if os.path.exists(checkpoint_path):
     model1 = load_model(checkpoint_path)
 else:
-    model1 = model.build_model()
+    model1 = model.build_model_2()
 
 logdir = 'logs'
 tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=logdir)
@@ -45,7 +45,7 @@ predictions = model1.predict(test)
 predicted_classes = np.argmax(predictions, axis=1)
 accuracy = accuracy_score(true_labels, predicted_classes)
 print(f'Accuracy: {accuracy * 100:2f}%')
-model1.save('my_model.h5') 
+model1.save(checkpoint_path) 
 
 """
 training_imgs, training_labels = read_files.read_and_resize_images(training_folder)
