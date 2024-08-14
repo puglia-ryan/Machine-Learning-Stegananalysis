@@ -39,7 +39,7 @@ else:
 
 logdir = 'logs'
 tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=logdir)
-#model1.fit(train, epochs=20, validation_data=val, callbacks=[tensorboard_callback])
+model1.fit(train, epochs=20, validation_data=val, callbacks=[tensorboard_callback])
 true_labels = np.concatenate([y for x, y in test], axis=0)
 predictions = model1.predict(test)
 predicted_classes = np.argmax(predictions, axis=1)
