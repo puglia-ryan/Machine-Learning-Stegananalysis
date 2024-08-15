@@ -43,7 +43,7 @@ logdir = 'logs'
 tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=logdir)
 
 #The fit method allows the model to train and improve
-model1.fit(train, epochs=20, validation_data=val, callbacks=[tensorboard_callback])
+#model1.fit(train, epochs=20, validation_data=val, callbacks=[tensorboard_callback])
 
 #Following code block is to determine the accuracy of the model
 true_labels = np.concatenate([y for x, y in test], axis=0)
