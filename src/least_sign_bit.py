@@ -37,3 +37,21 @@ def encode_all_img_in_folder(source_path, destination_path):
             rand_part = uuid.uuid4().hex 
             message = f"https://{rand_part}.com"
             encode_lsb(image_path, message, output_path)
+
+
+def decode_img(image_path):
+    #Opens the desired image
+    img = Image.open(image_path)
+    img_array = np.array(img)
+
+    flat_img_array = img_array.flatten()
+    binary_string = ''
+    for pixel in flat_img_array:
+        binary_string += str(pixel & 1)
+
+    message_len = 50
+    binary_chars = [binary_string[i:i+8] for i in range(0, message_len*8, 8)]
+    message = ''.join([chr(int(binary_char, 2)) for binary_char in binary_chars])
+
+    return message
+                    
