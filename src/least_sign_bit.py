@@ -1,5 +1,6 @@
 from PIL import Image
 import numpy as np
+import os
 
 def encode_lsb(image_path, message, output_path):
     #Load the image
@@ -21,4 +22,9 @@ def encode_lsb(image_path, message, output_path):
     img_array = flat_img_array.reshape(img_array.shape)
     encoded_img = Image.fromarray(img_array)
     encoded_img.save(output_path)
+    
+def encode_all_img_in_folder(source_path, destination_path):
+    #Check if the folder exists
+    if not os.path.exists(destination_path):
+        os.makedirs(destination_path)
     
