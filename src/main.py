@@ -13,9 +13,11 @@ import pathlib
 import matplotlib.pyplot as plt
 import least_sign_bit as lsb
 
-lsb.encode_lsb("data/clean/00001.png", "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "data/personal_stego/00001RickRoll.png")
-#lsb.encode_all_img_in_folder("data/clean", "data/personal_stego")
-
+#lsb.encode_lsb("data/clean/00001.png", "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "data/personal_stego/00001RickRoll.png")
+#lsb.encode_all_img_in_folder("data/own_stego/clean", "data/own_stego/stego")
+#message = lsb.decode_img('data/own_stego/stego/00001.png')
+#print(message)
+"""
 data = tf.keras.utils.image_dataset_from_directory(
     'data/own_stego',
     image_size=(512, 512),
@@ -60,5 +62,5 @@ print(f'Accuracy: {accuracy * 100:2f}%')
 model1.save(checkpoint_path) 
 
 
-
+"""
 
