@@ -11,7 +11,11 @@ from tensorflow.keras.models import load_model
 import os
 import pathlib
 import matplotlib.pyplot as plt
+import least_sign_bit as lsb
 
+lsb.encode_lsb("clean/00001.png", "Hello There", "personal_stego/steg_00001.png")
+
+"""
 data = tf.keras.utils.image_dataset_from_directory(
     'data',
     image_size=(512, 512),
@@ -55,7 +59,7 @@ print(f'Accuracy: {accuracy * 100:2f}%')
 #After training or prediciting, the model is once again saved
 model1.save(checkpoint_path) 
 
-"""
+
 training_imgs, training_labels = read_files.read_and_resize_images(training_folder)
 print("Done loading training images and labels")
 testing_imgs, testing_labels = read_files.read_and_resize_images(testing_folder)
