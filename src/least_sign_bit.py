@@ -1,6 +1,7 @@
 from PIL import Image
 import numpy as np
 import os
+import uuid
 
 def encode_lsb(image_path, message, output_path):
     #Load the image
@@ -27,4 +28,12 @@ def encode_all_img_in_folder(source_path, destination_path):
     #Check if the folder exists
     if not os.path.exists(destination_path):
         os.makedirs(destination_path)
-    
+    for filename in os.listdir(source_folder):
+        if filename.lower().endswith(('.png')):
+            image_path = os.path.join(source_path, filename)
+            output_path = os.path.join(destination_path, filename)
+
+            #Generates a random message in the format of a url
+            rand_part = uuid.uuid4().hex 
+            message = f"https://{rand_part}.com"
+            encode_lsb(image_path, message, output_path)
