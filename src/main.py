@@ -13,7 +13,7 @@ import pathlib
 import matplotlib.pyplot as plt
 import least_sign_bit as lsb
 
-lsb.encode_lsb("clean/00001.png", "Hello There", "personal_stego/steg_00001.png")
+lsb.encode_lsb("data/clean/00001.png", "Hello There", "data/personal_stego/steg_00001.png")
 
 """
 data = tf.keras.utils.image_dataset_from_directory(
