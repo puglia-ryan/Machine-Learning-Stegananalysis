@@ -5,4 +5,8 @@ def encode_lsb(image_path, message, output_path):
         #Load the image
         img = Image.open(image_path)
         img_array = np.array(img)
+
+        #The message is encoded into binary
+        message_in_bin = ''.join([format(ord(char), '80b') for char in message])
+        
     return
