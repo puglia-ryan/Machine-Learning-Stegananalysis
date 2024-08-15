@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 import least_sign_bit as lsb
 
 lsb.encode_lsb("data/clean/00001.png", "Hello There", "data/personal_stego/steg_00001.png")
-
+lsb.encode_all_img_in_folder("data/clean", "data/personal_stego")
 """
 data = tf.keras.utils.image_dataset_from_directory(
     'data',
