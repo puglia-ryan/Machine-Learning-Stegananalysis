@@ -18,4 +18,7 @@ def encode_lsb(image_path, message, output_path):
         else:
             flat_img_array[i] = flat_img_array[i] & ~1
 
-    return 1
+    img_array = flat_img_array.reshape(img_array.shape)
+    encoded_img = Image.fromarray(img_array)
+    encoded_img.save(output_path)
+    
