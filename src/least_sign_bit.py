@@ -28,7 +28,7 @@ def encode_all_img_in_folder(source_path, destination_path):
     #Check if the folder exists
     if not os.path.exists(destination_path):
         os.makedirs(destination_path)
-    for filename in os.listdir(source_folder):
+    for filename in os.listdir(source_path):
         if filename.lower().endswith(('.png')):
             image_path = os.path.join(source_path, filename)
             output_path = os.path.join(destination_path, filename)
